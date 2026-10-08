@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kd Math — Plataforma educativa de matemática con micro-lecciones, ejemplos y ejercicios para todos los niveles." />
+  <title>Kd Math · Aprendé matemática paso a paso</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- MathJax v3 -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Enlace de salto para lectores de pantalla / teclado -->
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="#" aria-label="Kd Math — inicio">
+        <svg class="logo-icon" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+          <rect width="34" height="34" rx="8" fill="#2ecc71"/>
+          <text x="17" y="23" text-anchor="middle" font-family="Georgia, serif" font-size="19" font-weight="bold" fill="#ffffff">Σ</text>
+        </svg>
+        <span class="logo-text">Kd&nbsp;<strong>Math</strong></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#mapa-temas">Temas</a></li>
+          <li><a href="#mapa-temas">Mi progreso</a></li>
+          <li><a href="#footer">Acerca de</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main id="contenido-principal">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="container hero-inner">
+        <p class="hero-eyebrow">Plataforma educativa gratuita</p>
+        <h1 id="titulo-hero">Aprendé matemática<br /><span class="accent">paso a paso</span></h1>
+        <p class="hero-lead">
+          Micro-lecciones con explicaciones claras, analogías, ejemplos y ejercicios.
+          De los números naturales al cálculo avanzado, a tu ritmo.
+        </p>
+
+        <form class="search-form" role="search" aria-label="Buscar temas">
+          <label class="visually-hidden" for="buscador">Buscar temas</label>
+          <input
+            id="buscador"
+            type="search"
+            placeholder="¿Qué querés aprender hoy? (ej: fracciones, límites…)"
+            autocomplete="off"
+            aria-describedby="resultados-info"
+          />
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        <p id="resultados-info" class="search-info" role="status" aria-live="polite"></p>
+
+        <p class="hero-formula" aria-hidden="true">\( e^{i\pi} + 1 = 0 \)</p>
+      </div>
+    </section>
+
+    <!-- Mapa de temas -->
+    <section id="mapa-temas" class="temas-section" aria-labelledby="titulo-mapa">
+      <div class="container">
+        <h2 id="titulo-mapa" class="section-title">Mapa de temas</h2>
+        <p class="section-subtitle">Seis niveles, 54 temas. Cada tarjeta muestra sus prerrequisitos y tu progreso.</p>
+        <div id="contenedor-niveles"><!-- Render dinámico desde script.js --></div>
+        <p id="sin-resultados" class="sin-resultados" hidden>
+          No se encontraron temas que coincidan con tu búsqueda.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ VISTA DE DETALLE (diálogo) ============ -->
+  <div id="detalle-overlay" class="detalle-overlay" hidden>
+    <div
+      class="detalle-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detalle-titulo"
+    >
+      <header class="detalle-header">
+        <div>
+          <p id="detalle-nivel" class="detalle-nivel"></p>
+          <h2 id="detalle-titulo" tabindex="-1"></h2>
+          <p id="detalle-descripcion" class="detalle-descripcion"></p>
+          <p id="detalle-prerrequisitos" class="detalle-prerrequisitos"></p>
+        </div>
+        <button id="btn-cerrar-detalle" class="btn-cerrar" aria-label="Cerrar detalle del tema">✕</button>
+      </header>
+
+      <div class="detalle-progreso">
+        <div class="barra-progreso" role="progressbar" aria-label="Progreso del tema" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="barra-progreso-fill" id="barra-progreso-fill"></div>
+        </div>
+        <span id="texto-progreso" class="texto-progreso"></span>
+      </div>
+
+      <div id="lista-lecciones" class="lista-lecciones"><!-- Micro-lecciones --></div>
+
+      <p id="detalle-vacio" class="detalle-vacio" hidden>
+        Este tema aún no tiene micro-lecciones cargadas. ¡Volvé pronto!
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="footer" class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo logo-footer" href="#">
+          <svg width="28" height="28" viewBox="0 0 34 34" aria-hidden="true" focusable="false">
+            <rect width="34" height="34" rx="8" fill="#2ecc71"/>
+            <text x="17" y="23" text-anchor="middle" font-family="Georgia, serif" font-size="19" font-weight="bold" fill="#ffffff">Σ</text>
+          </svg>
+          <span class="logo-text">Kd&nbsp;<strong>Math</strong></span>
+        </a>
+        <p class="footer-tagline">Matemática clara, para todos.</p>
+      </div>
+
+      <nav aria-label="Enlaces del pie de página">
+        <h3 class="footer-heading">Plataforma</h3>
+        <ul class="footer-links">
+          <li><a href="#mapa-temas">Mapa de temas</a></li>
+          <li><a href="#mapa-temas">Mi progreso</a></li>
+          <li><a href="#footer">Acerca de</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="footer-heading">Aviso</h3>
+        <p class="footer-disclaimer">
+          Kd Math es un proyecto educativo de código abierto. El contenido se ofrece
+          con fines de aprendizaje y se actualiza periódicamente. No reemplaza la
+          enseñanza formal ni la consulta con docentes.
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="anio"></span> Kd Math · Versión 1.0</p>
+    </div>
+  </footer>
+
+  <!-- Datos embebidos para funcionar sin servidor; datos.json es la fuente canónica -->
+  <script src="script.js"></script>
+</body>
+</html>

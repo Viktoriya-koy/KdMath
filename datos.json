@@ -1,0 +1,886 @@
+{
+  "proyecto": "Kd Math",
+  "version": "1.0",
+  "niveles": [
+    {
+      "id": "nivel-1",
+      "nombreInterno": "Fundamentos Numéricos",
+      "visible": false,
+      "temas": [
+        {
+          "id": "numeros-naturales",
+          "titulo": "Números Naturales",
+          "descripcion": "Qué son, cómo se ordenan, cómo se suman, restan, multiplican y dividen.",
+          "prerrequisitos": [],
+          "microLecciones": [
+            {
+              "id": "que-es-un-numero-natural",
+              "titulo": "¿Qué es un número natural?",
+              "objetivo": "Entender qué son los números naturales y para qué se usan en la vida cotidiana.",
+              "contenido": {
+                "explicacion": "Los números naturales son los que usamos para contar: \\(1, 2, 3, 4, \\dots\\). El conjunto de todos ellos se escribe \\(\\mathbb{N}\\).",
+                "analogia": "Son como los dedos de la mano: cada vez que contamos algo, usamos un número natural.",
+                "ejemplo": "Si tienes 3 manzanas y compras 2 más, ahora tienes \\(3 + 2 = 5\\) manzanas.",
+                "ejercicio": "Escribe los primeros 10 números naturales y usa cada uno en una frase de la vida real."
+              }
+            },
+            {
+              "id": "orden-y-comparacion",
+              "titulo": "Orden y comparación",
+              "objetivo": "Saber ordenar números naturales de menor a mayor y usar los símbolos <, >, =.",
+              "contenido": {
+                "explicacion": "Todo número natural tiene un siguiente y un anterior (salvo el 1). Decimos que \\(a < b\\) cuando \\(a\\) está a la izquierda de \\(b\\) en la recta numérica.",
+                "analogia": "Es como filas en el cine: el asiento 5 está antes que el asiento 9.",
+                "ejemplo": "\\(7 > 4\\) porque 7 está después de 4. \\(5 = 5\\) porque son el mismo número.",
+                "ejercicio": "Ordena de menor a mayor: 42, 17, 8, 63, 25."
+              }
+            },
+            {
+              "id": "suma-y-resta",
+              "titulo": "Suma y resta",
+              "objetivo": "Resolver sumas y restas con números naturales, entendiendo qué significan.",
+              "contenido": {
+                "explicacion": "La suma junta cantidades: \\(a + b\\). La resta quita o compara: \\(a - b\\). Solo tiene sentido cuando \\(a \\ge b\\) en los naturales.",
+                "analogia": "La suma es juntar monedas en una alcancía; la resta es gastar.",
+                "ejemplo": "\\(15 + 27 = 42\\). \\(42 - 27 = 15\\).",
+                "ejercicio": "Calcula: a) \\(38 + 57\\)  b) \\(91 - 46\\)"
+              }
+            },
+            {
+              "id": "multiplicacion-y-division",
+              "titulo": "Multiplicación y división",
+              "objetivo": "Entender la multiplicación como suma repetida y la división como reparto.",
+              "contenido": {
+                "explicacion": "\\(a \\times b\\) significa sumar \\(b\\) veces el número \\(a\\). \\(a \\div b\\) significa repartir \\(a\\) en \\(b\\) partes iguales.",
+                "analogia": "Multiplicar es comprar varios paquetes iguales; dividir es repartir la pizza entre amigos.",
+                "ejemplo": "\\(4 \\times 3 = 3 + 3 + 3 + 3 = 12\\). \\(12 \\div 4 = 3\\).",
+                "ejercicio": "Escribe \\(6 \\times 7\\) como una suma repetida y calcula \\(56 \\div 8\\)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "numeros-enteros",
+          "titulo": "Números Enteros",
+          "descripcion": "Qué son los negativos, para qué sirven, cómo se ordenan y operan.",
+          "prerrequisitos": [
+            "numeros-naturales"
+          ],
+          "microLecciones": [
+            {
+              "id": "que-es-un-numero-entero",
+              "titulo": "¿Qué es un número entero?",
+              "objetivo": "Entender la diferencia entre números naturales y enteros, y para qué sirven los negativos.",
+              "contenido": {
+                "explicacion": "Los enteros incluyen a los naturales, al cero y a los negativos: \\(\\mathbb{Z} = \\{\\dots, -2, -1, 0, 1, 2, \\dots\\}\\). Los negativos representan deudas, temperaturas bajo cero o profundidades.",
+                "analogia": "Un termómetro: 5° bajo cero se escribe \\(-5\\).",
+                "ejemplo": "\\(-3\\) representa una deuda de $3.",
+                "ejercicio": "Escribe 3 situaciones de la vida real donde se usan números negativos."
+              }
+            },
+            {
+              "id": "recta-numerica",
+              "titulo": "La recta numérica",
+              "objetivo": "Ubicar números enteros en la recta numérica y usarla para comparar y ordenar.",
+              "contenido": {
+                "explicacion": "En la recta numérica, a la derecha del cero están los positivos y a la izquierda los negativos. Entre más a la derecha, mayor es el número.",
+                "analogia": "Un ascensor: pisos positivos arriba, pisos negativos (sótano) abajo.",
+                "ejemplo": "\\(-2 < 1\\) porque \\(-2\\) está a la izquierda de \\(1\\).",
+                "ejercicio": "Ordena de menor a mayor: \\(-4, 2, 0, -1, 3\\)."
+              }
+            },
+            {
+              "id": "suma-de-enteros",
+              "titulo": "Suma de enteros",
+              "objetivo": "Sumar números enteros (positivos y negativos) entendiendo el porqué del resultado.",
+              "contenido": {
+                "explicacion": "Si los signos son iguales, suma y conserva el signo. Si son distintos, resta y toma el signo del número con mayor valor absoluto.",
+                "analogia": "Tu billetera: cobrar suma, pagar resta.",
+                "ejemplo": "\\(5 + (-8) = -3\\) porque \\(8 - 5 = 3\\) y gana el negativo.",
+                "ejercicio": "Calcula: a) \\(-6 + 10\\)  b) \\(-7 + (-5)\\)"
+              }
+            },
+            {
+              "id": "resta-de-enteros",
+              "titulo": "Resta de enteros",
+              "objetivo": "Restar números enteros y entender por qué restar un negativo es sumar.",
+              "contenido": {
+                "explicacion": "Restar es sumar el opuesto: \\(a - b = a + (-b)\\). Por eso \\(3 - (-2) = 3 + 2 = 5\\).",
+                "analogia": "Quitar una deuda es lo mismo que recibir dinero.",
+                "ejemplo": "\\(-4 - 6 = -10\\); \\(-4 - (-6) = 2\\).",
+                "ejercicio": "Calcula: a) \\(8 - (-3)\\)  b) \\(-5 - 9\\)"
+              }
+            },
+            {
+              "id": "multiplicacion-y-division-de-enteros",
+              "titulo": "Multiplicación y división de enteros",
+              "objetivo": "Entender la regla de los signos y aplicarla correctamente.",
+              "contenido": {
+                "explicacion": "Mismos signos → resultado positivo. Signos distintos → resultado negativo. Válido para multiplicar y dividir.",
+                "analogia": "Un video rebobinado dos veces: el signo se invierte dos veces y vuelve a ser positivo.",
+                "ejemplo": "\\((-3) \\times 4 = -12\\); \\((-12) \\div (-3) = 4\\).",
+                "ejercicio": "Calcula: a) \\((-5)(-6)\\)  b) \\(24 \\div (-8)\\)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "fracciones",
+          "titulo": "Fracciones",
+          "descripcion": "Qué son, cómo se comparan, suman, restan, multiplican y dividen.",
+          "prerrequisitos": [
+            "numeros-naturales",
+            "numeros-enteros"
+          ],
+          "microLecciones": [
+            {
+              "id": "que-es-una-fraccion",
+              "titulo": "¿Qué es una fracción?",
+              "objetivo": "Entender una fracción como parte de un todo y como resultado de una división.",
+              "contenido": {
+                "explicacion": "Una fracción \\(\\frac{a}{b}\\) representa \\(a\\) partes de un todo dividido en \\(b\\) partes iguales. También es el resultado de \\(a \\div b\\).",
+                "analogia": "Una pizza cortada en 8 porciones: comerte 3 es comerte \\(\\frac{3}{8}\\).",
+                "ejemplo": "\\(\\frac{1}{2}\\) de 10 es 5.",
+                "ejercicio": "Representa gráficamente \\(\\frac{2}{5}\\) y \\(\\frac{5}{2}\\). ¿Por qué son distintas?"
+              }
+            },
+            {
+              "id": "fracciones-equivalentes",
+              "titulo": "Fracciones equivalentes",
+              "objetivo": "Identificar fracciones equivalentes y simplificar fracciones.",
+              "contenido": {
+                "explicacion": "Multiplicar o dividir numerador y denominador por el mismo número da una fracción equivalente: \\(\\frac{a}{b} = \\frac{a \\cdot k}{b \\cdot k}\\).",
+                "analogia": "Cortar una pizza en más porciones más pequeñas no cambia cuánta pizza tienes.",
+                "ejemplo": "\\(\\frac{2}{3} = \\frac{4}{6} = \\frac{6}{9}\\).",
+                "ejercicio": "Simplifica: a) \\(\\frac{12}{18}\\)  b) \\(\\frac{15}{25}\\)"
+              }
+            },
+            {
+              "id": "comparacion-de-fracciones",
+              "titulo": "Comparación de fracciones",
+              "objetivo": "Comparar fracciones con distinto numerador y denominador.",
+              "contenido": {
+                "explicacion": "Para comparar \\(\\frac{a}{b}\\) y \\(\\frac{c}{d}\\) se busca un denominador común o se comparan las fracciones con la recta numérica.",
+                "analogia": "Para comparar tiempos de carrera, todos deben recorrer la misma distancia.",
+                "ejemplo": "\\(\\frac{2}{3}\\) vs \\(\\frac{3}{4}\\): \\(\\frac{8}{12} < \\frac{9}{12}\\), entonces \\(\\frac{2}{3} < \\frac{3}{4}\\).",
+                "ejercicio": "Ordena de menor a mayor: \\(\\frac{1}{2}, \\frac{2}{3}, \\frac{3}{5}\\)."
+              }
+            },
+            {
+              "id": "suma-y-resta-de-fracciones",
+              "titulo": "Suma y resta de fracciones",
+              "objetivo": "Sumar y restar fracciones con igual y distinto denominador, entendiendo el porqué.",
+              "contenido": {
+                "explicacion": "Con igual denominador, suma los numeradores. Con distinto, convierte a denominador común primero: \\(\\frac{a}{b} \\pm \\frac{c}{d} = \\frac{ad \\pm bc}{bd}\\).",
+                "analogia": "No puedes sumar manzanas y naranjas hasta que las expresas en la misma 'fruta'.",
+                "ejemplo": "\\(\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}\\).",
+                "ejercicio": "Calcula: a) \\(\\frac{3}{4} + \\frac{1}{8}\\)  b) \\(\\frac{5}{6} - \\frac{1}{3}\\)"
+              }
+            },
+            {
+              "id": "multiplicacion-y-division-de-fracciones",
+              "titulo": "Multiplicación y división de fracciones",
+              "objetivo": "Multiplicar y dividir fracciones entendiendo qué significa cada operación.",
+              "contenido": {
+                "explicacion": "Multiplicar: numerador por numerador, denominador por denominador. Dividir: multiplicar por el recíproco: \\(\\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\cdot \\frac{d}{c}\\).",
+                "analogia": "Dividir por un cuarto es preguntar '¿cuántos cuartos caben?'.",
+                "ejemplo": "\\(\\frac{2}{3} \\cdot \\frac{4}{5} = \\frac{8}{15}\\); \\(\\frac{1}{2} \\div \\frac{1}{4} = 2\\).",
+                "ejercicio": "Calcula: a) \\(\\frac{3}{5} \\cdot \\frac{10}{9}\\)  b) \\(\\frac{2}{3} \\div \\frac{4}{7}\\)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "decimales",
+          "titulo": "Decimales",
+          "descripcion": "Qué son, cómo se ordenan, operan y relacionan con las fracciones.",
+          "prerrequisitos": [
+            "fracciones"
+          ],
+          "microLecciones": [
+            {
+              "id": "que-es-un-decimal",
+              "titulo": "¿Qué es un número decimal?",
+              "objetivo": "Entender la relación entre fracciones y decimales, y el valor posicional.",
+              "contenido": {
+                "explicacion": "Un decimal expresa una fracción con denominador 10, 100, 1000...: \\(\\frac{3}{4} = 0.75\\). Cada posición a la derecha de la coma vale 10 veces menos.",
+                "analogia": "El dinero: 1 peso = 10 decimos = 100 centavos.",
+                "ejemplo": "\\(2.35 = 2 + \\frac{3}{10} + \\frac{5}{100}\\).",
+                "ejercicio": "Escribe como fracción: a) 0.5  b) 0.125  c) 1.25"
+              }
+            },
+            {
+              "id": "operaciones-con-decimales",
+              "titulo": "Operaciones con decimales",
+              "objetivo": "Sumar, restar, multiplicar y dividir decimales correctamente.",
+              "contenido": {
+                "explicacion": "Alinea las comas para sumar y restar. Al multiplicar, cuenta los decimales de ambos factores. Al dividir, multiplica por potencias de 10 para quitar la coma.",
+                "analogia": "Trabajar con decimales es como trabajar con centavos: todo entero, luego se acomoda la coma.",
+                "ejemplo": "\\(1.5 \\times 0.4 = 0.60 = 0.6\\).",
+                "ejercicio": "Calcula: a) \\(2.75 + 1.4\\)  b) \\(0.6 \\times 0.25\\)"
+              }
+            },
+            {
+              "id": "decimales-y-porcentajes",
+              "titulo": "Decimales y porcentajes",
+              "objetivo": "Convertir decimales a porcentajes y viceversa.",
+              "contenido": {
+                "explicacion": "El porcentaje es una fracción sobre 100: \\(p\\% = \\frac{p}{100}\\). Para pasar de decimal a porcentaje, multiplica por 100.",
+                "analogia": "'Por ciento' significa 'de cada cien'.",
+                "ejemplo": "\\(0.35 = 35\\%\\); \\(120\\% = 1.2\\).",
+                "ejercicio": "Convierte: a) 0.08 a porcentaje  b) 45% a decimal"
+              }
+            }
+          ]
+        },
+        {
+          "id": "operaciones-combinadas",
+          "titulo": "Operaciones Combinadas",
+          "descripcion": "Jerarquía de operaciones y uso de paréntesis.",
+          "prerrequisitos": [
+            "numeros-naturales",
+            "numeros-enteros"
+          ],
+          "microLecciones": [
+            {
+              "id": "jerarquia-de-operaciones",
+              "titulo": "Jerarquía de operaciones",
+              "objetivo": "Entender el orden en que se resuelven las operaciones combinadas.",
+              "contenido": {
+                "explicacion": "El orden es: 1) paréntesis, 2) potencias y raíces, 3) multiplicación y división (de izquierda a derecha), 4) suma y resta.",
+                "analogia": "Es como las reglas de tránsito: todos respetan el mismo orden para no chocar.",
+                "ejemplo": "\\(2 + 3 \\times 4 = 2 + 12 = 14\\), no \\(20\\).",
+                "ejercicio": "Calcula: a) \\(6 + 8 \\div 2\\)  b) \\(5 \\times (3 + 2) - 4\\)"
+              }
+            },
+            {
+              "id": "uso-de-parentesis",
+              "titulo": "Uso de paréntesis",
+              "objetivo": "Usar paréntesis para modificar el orden de las operaciones.",
+              "contenido": {
+                "explicacion": "Los paréntesis agrupan operaciones que deben resolverse primero, cambiando el resultado.",
+                "analogia": "Los paréntesis son un 'prioridad VIP': lo que está adentro pasa primero.",
+                "ejemplo": "\\((2 + 3) \\times 4 = 20\\) vs \\(2 + 3 \\times 4 = 14\\).",
+                "ejercicio": "Coloca paréntesis para que valga 18: \\(2 + 4 \\times 3\\)."
+              }
+            }
+          ]
+        },
+        {
+          "id": "divisibilidad",
+          "titulo": "Divisibilidad",
+          "descripcion": "Múltiplos, divisores, criterios de divisibilidad y números primos.",
+          "prerrequisitos": [
+            "numeros-naturales"
+          ],
+          "microLecciones": [
+            {
+              "id": "multiplos-y-divisores",
+              "titulo": "Múltiplos y divisores",
+              "objetivo": "Entender qué son múltiplos y divisores, y cómo encontrarlos.",
+              "contenido": {
+                "explicacion": "\\(a\\) es múltiplo de \\(b\\) si \\(a = b \\cdot k\\) para algún entero \\(k\\). Decimos que \\(b\\) es divisor de \\(a\\).",
+                "analogia": "Los múltiplos de 3 son los 'saltos' del 3 en la recta: 3, 6, 9, 12...",
+                "ejemplo": "12 es múltiplo de 3 (porque \\(3 \\times 4 = 12\\)); los divisores de 12 son 1, 2, 3, 4, 6 y 12.",
+                "ejercicio": "Escribe los primeros 6 múltiplos de 4 y todos los divisores de 18."
+              }
+            },
+            {
+              "id": "criterios-de-divisibilidad",
+              "titulo": "Criterios de divisibilidad",
+              "objetivo": "Saber si un número es divisible por 2, 3, 5, 9 y 10 sin hacer la división.",
+              "contenido": {
+                "explicacion": "Por 2: termina en par. Por 5: termina en 0 o 5. Por 10: termina en 0. Por 3 y 9: la suma de sus dígitos es divisible por 3 o 9.",
+                "analogia": "Como reconocer a alguien por su forma de caminar, sin ver su cara.",
+                "ejemplo": "438 es divisible por 2 (par), por 3 (4+3+8=15) pero no por 9 (15 no es múltiplo de 9).",
+                "ejercicio": "¿Es 720 divisible por 2, 3, 5, 9 y 10? Justifica cada respuesta."
+              }
+            },
+            {
+              "id": "numeros-primos",
+              "titulo": "Números primos",
+              "objetivo": "Entender qué son los números primos y cómo identificarlos.",
+              "contenido": {
+                "explicacion": "Un número primo tiene exactamente dos divisores: 1 y sí mismo. Los demás son compuestos. El 1 no es primo.",
+                "analogia": "Los primos son los 'ladrillos' con los que se construyen todos los números.",
+                "ejemplo": "2, 3, 5, 7, 11, 13 son primos; 12 es compuesto (\\(12 = 2^2 \\cdot 3\\)).",
+                "ejercicio": "Encuentra todos los primos entre 20 y 40."
+              }
+            }
+          ]
+        },
+        {
+          "id": "figuras-geometricas-basicas",
+          "titulo": "Figuras Geométricas Básicas",
+          "descripcion": "Círculo, cuadrado, triángulo, rectángulo y sus propiedades.",
+          "prerrequisitos": [],
+          "microLecciones": [
+            {
+              "id": "figuras-planas",
+              "titulo": "Figuras planas",
+              "objetivo": "Identificar las figuras planas básicas y sus características.",
+              "contenido": {
+                "explicacion": "El triángulo tiene 3 lados, el cuadrado 4 lados iguales y ángulos de \\(90°\\), el rectángulo 4 lados opuestos iguales, y el círculo todos sus puntos a la misma distancia del centro.",
+                "analogia": "Las figuras planas son como las siluetas de objetos vistos de frente.",
+                "ejemplo": "Una ventana suele ser un rectángulo; una rueda es un círculo.",
+                "ejercicio": "Encuentra 3 objetos de tu casa para cada figura plana."
+              }
+            },
+            {
+              "id": "cuerpos-geometricos",
+              "titulo": "Cuerpos geométricos",
+              "objetivo": "Identificar cubos, esferas, cilindros y conos.",
+              "contenido": {
+                "explicacion": "Los cuerpos geométricos ocupan espacio en tres dimensiones: largo, ancho y alto.",
+                "analogia": "Las figuras planas son dibujos; los cuerpos son los objetos reales.",
+                "ejemplo": "Un dado es un cubo, una pelota es una esfera, una lata es un cilindro.",
+                "ejercicio": "Dibuja las caras de un cubo y cuenta sus aristas."
+              }
+            }
+          ]
+        },
+        {
+          "id": "medicion",
+          "titulo": "Medición",
+          "descripcion": "Longitud, peso, capacidad y tiempo.",
+          "prerrequisitos": [],
+          "microLecciones": [
+            {
+              "id": "unidades-de-longitud",
+              "titulo": "Unidades de longitud",
+              "objetivo": "Conocer y usar las unidades de longitud (mm, cm, m, km).",
+              "contenido": {
+                "explicacion": "\\(1\\,km = 1000\\,m\\), \\(1\\,m = 100\\,cm\\), \\(1\\,cm = 10\\,mm\\). Para convertir, multiplica o divide por potencias de 10.",
+                "analogia": "Una escalera de unidades: cada peldaño vale 10 (o 1000) veces el anterior.",
+                "ejemplo": "\\(3.5\\,m = 350\\,cm = 3500\\,mm\\).",
+                "ejercicio": "Convierte: a) 2.4 km a m  b) 75 cm a m"
+              }
+            },
+            {
+              "id": "unidades-de-peso-y-capacidad",
+              "titulo": "Unidades de peso y capacidad",
+              "objetivo": "Conocer y usar las unidades de peso (g, kg) y capacidad (ml, l).",
+              "contenido": {
+                "explicacion": "\\(1\\,kg = 1000\\,g\\) y \\(1\\,l = 1000\\,ml\\). El peso mide cuánta materia hay; la capacidad, cuánto líquido cabe.",
+                "analogia": "Un litro es un poco más que 4 vasos de yogur de 250 ml.",
+                "ejemplo": "\\(2.5\\,kg = 2500\\,g\\); \\(750\\,ml = 0.75\\,l\\).",
+                "ejercicio": "Convierte: a) 4500 g a kg  b) 1.2 l a ml"
+              }
+            }
+          ]
+        },
+        {
+          "id": "estadistica-basica",
+          "titulo": "Estadística Descriptiva Básica",
+          "descripcion": "Recolección de datos, tablas y gráficos.",
+          "prerrequisitos": [
+            "numeros-naturales"
+          ],
+          "microLecciones": [
+            {
+              "id": "recoleccion-de-datos",
+              "titulo": "Recolección de datos",
+              "objetivo": "Entender cómo se recolectan y organizan datos.",
+              "contenido": {
+                "explicacion": "Primero se define qué se quiere saber, luego se recogen los datos (encuestas, observación, medición) y finalmente se organizan.",
+                "analogia": "Es como hacer una lista del supermercado antes de salir de compras.",
+                "ejemplo": "Para saber la fruta favorita de tu clase, preguntas a cada compañero y anotas su respuesta.",
+                "ejercicio": "Diseña una mini-encuesta de 2 preguntas para tu familia y anota los resultados."
+              }
+            },
+            {
+              "id": "tablas-de-frecuencia",
+              "titulo": "Tablas de frecuencia",
+              "objetivo": "Construir e interpretar tablas de frecuencia simples.",
+              "contenido": {
+                "explicacion": "La frecuencia cuenta cuántas veces aparece cada dato. La frecuencia relativa es \\(\\frac{f_i}{n}\\).",
+                "analogia": "Un contador de personas: cada vez que alguien pasa, sube el número.",
+                "ejemplo": "En los datos {a, b, a, c, a, b}, la frecuencia de 'a' es 3 y su frecuencia relativa es \\(\\frac{3}{6} = 0.5\\).",
+                "ejercicio": "Arma la tabla de frecuencia de las edades: 12, 13, 12, 14, 13, 12."
+              }
+            },
+            {
+              "id": "graficos-de-barras",
+              "titulo": "Gráficos de barras",
+              "objetivo": "Leer y construir gráficos de barras.",
+              "contenido": {
+                "explicacion": "En un gráfico de barras, la altura de cada barra representa la frecuencia de cada categoría.",
+                "analogia": "Un edificio donde cada piso es un dato: mientras más alto el piso, más frecuente el dato.",
+                "ejemplo": "Si el lunes se vendieron 4 helados y el martes 7, la barra del martes es casi el doble de alta.",
+                "ejercicio": "Dibuja el gráfico de barras de tu tabla de frecuencia del ejercicio anterior."
+              }
+            }
+          ]
+        },
+        {
+          "id": "azar-y-probabilidad",
+          "titulo": "Azar y Probabilidad",
+          "descripcion": "Eventos seguros, posibles e imposibles. Introducción al azar.",
+          "prerrequisitos": [
+            "fracciones"
+          ],
+          "microLecciones": [
+            {
+              "id": "eventos-seguros-posibles-imposibles",
+              "titulo": "Eventos seguros, posibles e imposibles",
+              "objetivo": "Clasificar eventos según su probabilidad de ocurrir.",
+              "contenido": {
+                "explicacion": "Un evento seguro siempre ocurre (probabilidad 1), uno imposible jamás (probabilidad 0), y uno posible puede o no ocurrir.",
+                "analogia": "Seguro: el sol sale por el este. Imposible: hoy es lunes y viernes a la vez. Posible: llueva mañana.",
+                "ejemplo": "Al lanzar un dado, sacar 1, 2, 3, 4, 5 o 6 es seguro; sacar 7 es imposible; sacar un 3 es posible.",
+                "ejercicio": "Clasifica 5 eventos de tu día a día en seguros, posibles e imposibles."
+              }
+            },
+            {
+              "id": "introduccion-a-la-probabilidad",
+              "titulo": "Introducción a la probabilidad",
+              "objetivo": "Calcular probabilidades simples con dados, monedas y urnas.",
+              "contenido": {
+                "explicacion": "La probabilidad de un evento es \\(\\frac{\\text{casos favorables}}{\\text{casos posibles}}\\), siempre entre 0 y 1.",
+                "analogia": "Es la fracción del 'pastel total' que representa tu evento.",
+                "ejemplo": "La probabilidad de sacar par en un dado es \\(\\frac{3}{6} = \\frac{1}{2}\\).",
+                "ejercicio": "Calcula la probabilidad de: a) cara al lanzar una moneda  b) sacar roja de una urna con 3 rojas y 7 azules"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nivel-2",
+      "nombreInterno": "Operaciones y Razonamiento Proporcional",
+      "visible": false,
+      "temas": [
+        {
+          "id": "sistema-decimal",
+          "titulo": "Sistema Decimal y Valor Posicional",
+          "descripcion": "Valor posicional, descomposición y operaciones con números grandes.",
+          "prerrequisitos": [
+            "numeros-naturales"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "potenciacion-y-radicacion",
+          "titulo": "Potenciación y Radicación",
+          "descripcion": "Cuadrados, cubos, raíces cuadradas y cúbicas.",
+          "prerrequisitos": [
+            "numeros-naturales"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "razones-y-proporciones",
+          "titulo": "Razones y Proporciones",
+          "descripcion": "Razones, proporciones y regla de tres simple.",
+          "prerrequisitos": [
+            "fracciones",
+            "decimales"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "porcentaje",
+          "titulo": "Porcentaje",
+          "descripcion": "Cálculo de porcentajes, aumentos y descuentos.",
+          "prerrequisitos": [
+            "razones-y-proporciones"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "proporcionalidad",
+          "titulo": "Proporcionalidad",
+          "descripcion": "Proporcionalidad directa e inversa.",
+          "prerrequisitos": [
+            "razones-y-proporciones"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "angulos-y-poligonos",
+          "titulo": "Ángulos y Polígonos",
+          "descripcion": "Clasificación de ángulos, propiedades de triángulos y cuadriláteros.",
+          "prerrequisitos": [
+            "figuras-geometricas-basicas"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "perimetro-y-area",
+          "titulo": "Perímetro y Área",
+          "descripcion": "Cálculo de perímetro y área de figuras planas.",
+          "prerrequisitos": [
+            "figuras-geometricas-basicas",
+            "medicion"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "cuerpos-geometricos-avanzado",
+          "titulo": "Cuerpos Geométricos: Volumen y Superficie",
+          "descripcion": "Volumen y superficie de cuerpos geométricos.",
+          "prerrequisitos": [
+            "figuras-geometricas-basicas"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "medidas-de-tendencia-central",
+          "titulo": "Medidas de Tendencia Central",
+          "descripcion": "Media, mediana y moda.",
+          "prerrequisitos": [
+            "estadistica-basica"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "probabilidad-simple",
+          "titulo": "Probabilidad Simple",
+          "descripcion": "Cálculo de probabilidades con dados, monedas y urnas.",
+          "prerrequisitos": [
+            "azar-y-probabilidad"
+          ],
+          "microLecciones": []
+        }
+      ]
+    },
+    {
+      "id": "nivel-3",
+      "nombreInterno": "Introducción al Álgebra y Funciones",
+      "visible": false,
+      "temas": [
+        {
+          "id": "numeros-reales",
+          "titulo": "Números Reales",
+          "descripcion": "Racionales e irracionales. La recta real.",
+          "prerrequisitos": [
+            "fracciones",
+            "decimales",
+            "numeros-enteros"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "expresiones-algebraicas",
+          "titulo": "Expresiones Algebraicas",
+          "descripcion": "Monomios, polinomios y operaciones.",
+          "prerrequisitos": [
+            "numeros-enteros"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "factorizacion",
+          "titulo": "Factorización",
+          "descripcion": "Factor común, diferencia de cuadrados, trinomio cuadrado perfecto.",
+          "prerrequisitos": [
+            "expresiones-algebraicas"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "ecuaciones-primer-grado",
+          "titulo": "Ecuaciones de Primer Grado",
+          "descripcion": "Resolución y aplicaciones.",
+          "prerrequisitos": [
+            "expresiones-algebraicas"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "sistemas-de-ecuaciones",
+          "titulo": "Sistemas de Ecuaciones Lineales",
+          "descripcion": "Métodos de sustitución, igualación y reducción.",
+          "prerrequisitos": [
+            "ecuaciones-primer-grado"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "ecuaciones-cuadraticas",
+          "titulo": "Ecuaciones Cuadráticas",
+          "descripcion": "Fórmula resolvente, factorización y gráficos.",
+          "prerrequisitos": [
+            "factorizacion"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "funcion-lineal",
+          "titulo": "Función Lineal",
+          "descripcion": "Pendiente, ordenada al origen y gráfico.",
+          "prerrequisitos": [
+            "ecuaciones-primer-grado"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "funcion-cuadratica",
+          "titulo": "Función Cuadrática",
+          "descripcion": "Vértice, raíces y eje de simetría.",
+          "prerrequisitos": [
+            "ecuaciones-cuadraticas"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "trigonometria-basica",
+          "titulo": "Trigonometría Básica",
+          "descripcion": "Razones trigonométricas en triángulos rectángulos.",
+          "prerrequisitos": [
+            "angulos-y-poligonos"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "geometria-analitica",
+          "titulo": "Geometría Analítica",
+          "descripcion": "Distancia entre puntos, ecuación de la recta.",
+          "prerrequisitos": [
+            "funcion-lineal"
+          ],
+          "microLecciones": []
+        }
+      ]
+    },
+    {
+      "id": "nivel-4",
+      "nombreInterno": "Cálculo Diferencial e Integral",
+      "visible": false,
+      "temas": [
+        {
+          "id": "limites",
+          "titulo": "Límites",
+          "descripcion": "Noción intuitiva, cálculo y propiedades.",
+          "prerrequisitos": [
+            "funcion-lineal",
+            "funcion-cuadratica"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "continuidad",
+          "titulo": "Continuidad",
+          "descripcion": "Tipos de discontinuidad.",
+          "prerrequisitos": [
+            "limites"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "derivadas",
+          "titulo": "Derivadas",
+          "descripcion": "Definición, interpretación geométrica y física.",
+          "prerrequisitos": [
+            "limites"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "reglas-de-derivacion",
+          "titulo": "Reglas de Derivación",
+          "descripcion": "Suma, producto, cociente y regla de la cadena.",
+          "prerrequisitos": [
+            "derivadas"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "aplicaciones-de-derivadas",
+          "titulo": "Aplicaciones de Derivadas",
+          "descripcion": "Máximos, mínimos, optimización y tasa de cambio.",
+          "prerrequisitos": [
+            "reglas-de-derivacion"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "integrales-indefinidas",
+          "titulo": "Integrales Indefinidas",
+          "descripcion": "Antiderivadas y constante de integración.",
+          "prerrequisitos": [
+            "reglas-de-derivacion"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "metodos-de-integracion",
+          "titulo": "Métodos de Integración",
+          "descripcion": "Sustitución y partes.",
+          "prerrequisitos": [
+            "integrales-indefinidas"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "integral-definida",
+          "titulo": "Integral Definida",
+          "descripcion": "Área bajo la curva y Teorema Fundamental del Cálculo.",
+          "prerrequisitos": [
+            "metodos-de-integracion"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "aplicaciones-de-integrales",
+          "titulo": "Aplicaciones de Integrales",
+          "descripcion": "Áreas, volúmenes de revolución y longitud de arco.",
+          "prerrequisitos": [
+            "integral-definida"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "matrices-y-determinantes",
+          "titulo": "Matrices y Determinantes",
+          "descripcion": "Operaciones con matrices y cálculo de determinantes.",
+          "prerrequisitos": [
+            "sistemas-de-ecuaciones"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "sistemas-gauss",
+          "titulo": "Sistemas de Ecuaciones: Método de Gauss",
+          "descripcion": "Resolución de sistemas por eliminación gaussiana.",
+          "prerrequisitos": [
+            "matrices-y-determinantes"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "espacios-vectoriales",
+          "titulo": "Espacios Vectoriales",
+          "descripcion": "Independencia lineal, bases y dimensión.",
+          "prerrequisitos": [
+            "matrices-y-determinantes"
+          ],
+          "microLecciones": []
+        }
+      ]
+    },
+    {
+      "id": "nivel-5",
+      "nombreInterno": "Matemática Discreta y Avanzada",
+      "visible": false,
+      "temas": [
+        {
+          "id": "sucesiones-y-series",
+          "titulo": "Sucesiones y Series",
+          "descripcion": "Convergencia y criterios.",
+          "prerrequisitos": [
+            "limites"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "ecuaciones-diferenciales",
+          "titulo": "Ecuaciones Diferenciales",
+          "descripcion": "Primer orden y lineales de orden superior.",
+          "prerrequisitos": [
+            "integral-definida"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "teoria-de-numeros",
+          "titulo": "Teoría de Números",
+          "descripcion": "Congruencias, teorema de Euler y criptografía.",
+          "prerrequisitos": [
+            "divisibilidad"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "grupos-y-anillos",
+          "titulo": "Grupos y Anillos",
+          "descripcion": "Introducción al álgebra abstracta.",
+          "prerrequisitos": [
+            "espacios-vectoriales"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "metodos-numericos",
+          "titulo": "Métodos Numéricos",
+          "descripcion": "Aproximación y cálculo numérico.",
+          "prerrequisitos": [
+            "integral-definida"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "optimizacion",
+          "titulo": "Optimización",
+          "descripcion": "Métodos de optimización.",
+          "prerrequisitos": [
+            "aplicaciones-de-derivadas"
+          ],
+          "microLecciones": []
+        }
+      ]
+    },
+    {
+      "id": "nivel-6",
+      "nombreInterno": "Profundización y Especialización",
+      "visible": false,
+      "temas": [
+        {
+          "id": "analisis-funcional",
+          "titulo": "Análisis Funcional",
+          "descripcion": "Espacios de Banach y Hilbert.",
+          "prerrequisitos": [
+            "espacios-vectoriales"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "algebra-conmutativa",
+          "titulo": "Álgebra Conmutativa",
+          "descripcion": "Anillos noetherianos, ideales y módulos.",
+          "prerrequisitos": [
+            "grupos-y-anillos"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "geometria-algebraica",
+          "titulo": "Geometría Algebraica",
+          "descripcion": "Variedades, haces y cohomología.",
+          "prerrequisitos": [
+            "algebra-conmutativa"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "topologia-algebraica",
+          "titulo": "Topología Algebraica",
+          "descripcion": "Grupos de homotopía y homología.",
+          "prerrequisitos": [
+            "grupos-y-anillos"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "probabilidad-avanzada",
+          "titulo": "Probabilidad Avanzada",
+          "descripcion": "Procesos estocásticos y cadenas de Markov.",
+          "prerrequisitos": [
+            "probabilidad-simple"
+          ],
+          "microLecciones": []
+        },
+        {
+          "id": "estadistica-matematica",
+          "titulo": "Estadística Matemática",
+          "descripcion": "Inferencia bayesiana y teoría asintótica.",
+          "prerrequisitos": [
+            "probabilidad-avanzada"
+          ],
+          "microLecciones": []
+        }
+      ]
+    }
+  ]
+}
