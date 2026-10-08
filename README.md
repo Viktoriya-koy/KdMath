@@ -52,25 +52,6 @@ El sistema no da la respuesta. Da pistas. Si te equivocás, identifica qué conc
 
 🇨🇳 Contenido alineado con estándares internacionales: estructura curricular inspirada en los sistemas con mejor desempeño en PISA.
 
-🗂️ Estructura del proyecto
-text
-kdmath/
-├── index.html              # Página principal
-├── css/
-│   ├── styles.css          # Estilos globales
-│   └── temas.css           # Estilos de la vista de temas
-├── js/
-│   ├── app.js              # Lógica de navegación y estado
-│   ├── datos.js            # Carga y gestión de datos
-│   ├── progreso.js         # Persistencia del progreso
-│   └── correccion.js       # Conexión con IA para corrección
-├── datos/
-│   └── datos.json          # Estructura de niveles, temas y micro-lecciones
-├── recursos/
-│   ├── img/
-│   └── iconos/
-├── CNAME                   # Dominio personalizado para GitHub Pages
-└── README.md
 🛠️ Tecnologías
 Tecnología	Uso
 HTML5	Estructura semántica y accesible
