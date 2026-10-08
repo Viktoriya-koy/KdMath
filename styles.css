@@ -164,9 +164,45 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .nivel { margin-bottom: 2.75rem; }
 .nivel-titulo {
-  display: flex; align-items: baseline; gap: 0.75rem;
-  font-size: 1.2rem; font-weight: 700; color: var(--color-primario);
-  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primario);
+  background: var(--color-blanco);
+  border: 1px solid var(--color-gris-borde);
+  border-radius: var(--radio);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+
+.nivel-titulo:hover {
+  background: var(--color-gris-claro);
+  border-color: var(--color-acento);
+}
+
+.nivel-nombre { flex-grow: 1; }
+
+.nivel-cantidad {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-texto-suave);
+  white-space: nowrap;
+}
+
+.nivel-flecha {
+  color: var(--color-acento-oscuro);
+  font-size: 0.9rem;
+  transition: transform var(--transicion);
+}
+
+.nivel-titulo[aria-expanded="true"] .nivel-flecha {
+  transform: rotate(180deg);
 }
 .nivel-numero {
   font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
@@ -177,9 +213,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 /* Grid de tarjetas */
 .grid-temas {
-  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
+}
+
+.grid-temas:not([hidden]) {
+  display: grid;
 }
 
 .tema-card {
