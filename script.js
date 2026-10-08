@@ -57,7 +57,23 @@ const Progreso = {
     return hechas / tema.microLecciones.length;
   }
 };
+/* ---------- Estado de niveles desplegables (localStorage) ---------- */
+const NIVELES_KEY = 'kdmath-niveles-v1';
 
+function leerEstadoNiveles() {
+  try {
+    const raw = localStorage.getItem(NIVELES_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
+}
+
+function guardarEstadoNiveles(estados) {
+  try {
+    localStorage.setItem(NIVELES_KEY, JSON.stringify(estados));
+  } catch { /* almacenamiento no disponible */ }
+}
 /* ---------- Render del mapa de temas ---------- */
 const contenedor = $('#contenedor-niveles');
 const sinResultados = $('#sin-resultados');
@@ -113,6 +129,9 @@ function crearTarjeta(tema, nivel) {
 /** Renderiza todos los niveles y sus tarjetas. */
 function renderMapa(filtro = '') {
   const q = normalizar(filtro.trim());
+  const hayBusqueda = q.length > 0;
+  const estadosGuardados = leerEstadoNiveles();
+
   contenedor.innerHTML = '';
   let totalVisibles = 0;
 
@@ -128,19 +147,52 @@ function renderMapa(filtro = '') {
 
     totalVisibles += temasVisibles.length;
 
+    const nivelId = `nivel-${i + 1}`;
+
+    // Al buscar, abrir todos. Si no, respetar estado guardado (primer nivel abierto por defecto).
+    const estaAbierto = hayBusqueda
+      ? true
+      : (estadosGuardados[nivelId] ?? (i === 0));
+
     const seccion = document.createElement('section');
     seccion.className = 'nivel';
     seccion.setAttribute('aria-label', nivel.nombreInterno);
 
-    const titulo = document.createElement('h3');
-    titulo.className = 'nivel-titulo';
-    titulo.innerHTML = `<span class="nivel-numero">Nivel ${i + 1}</span>${nivel.nombreInterno}`;
+    // --- Título desplegable ---
+    const btnTitulo = document.createElement('button');
+    btnTitulo.className = 'nivel-titulo';
+    btnTitulo.type = 'button';
+    btnTitulo.setAttribute('aria-expanded', String(estaAbierto));
+    btnTitulo.setAttribute('aria-controls', `${nivelId}-grid`);
+    btnTitulo.innerHTML = `
+      <span class="nivel-numero">Nivel ${i + 1}</span>
+      <span class="nivel-nombre">${nivel.nombreInterno}</span>
+      <span class="nivel-cantidad">${temasVisibles.length} tema${temasVisibles.length !== 1 ? 's' : ''}</span>
+      <span class="nivel-flecha" aria-hidden="true">▾</span>
+    `;
 
+    // --- Grid de tarjetas ---
     const grid = document.createElement('div');
     grid.className = 'grid-temas';
+    grid.id = `${nivelId}-grid`;
+    grid.hidden = !estaAbierto;
     temasVisibles.forEach(tema => grid.appendChild(crearTarjeta(tema, nivel)));
 
-    seccion.append(titulo, grid);
+    // --- Toggle ---
+    btnTitulo.addEventListener('click', () => {
+      const abierto = btnTitulo.getAttribute('aria-expanded') === 'true';
+      btnTitulo.setAttribute('aria-expanded', String(!abierto));
+      grid.hidden = abierto;
+
+      // Solo guardar si no estamos en modo búsqueda
+      if (!hayBusqueda) {
+        const estados = leerEstadoNiveles();
+        estados[nivelId] = !abierto;
+        guardarEstadoNiveles(estados);
+      }
+    });
+
+    seccion.append(btnTitulo, grid);
     contenedor.appendChild(seccion);
   });
 
